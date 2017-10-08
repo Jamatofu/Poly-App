@@ -1,0 +1,14 @@
+<div id="news">
+
+    <div id="imgContainer ">
+      <img [src]="news.urlImage" alt=""  id="imageNews"/>
+    </div>
+
+  <div id="contentNews" class="p-2">
+    <h4 class="mt-0 text-center">{{ news.title }}</h4>
+    <p class="">{{ news.content }}</p>
+
+    <p class="text-right font-italic font-weight-bold">le {{ news.date | date:'medium'}}</p>
+  </div>
+
+</div>

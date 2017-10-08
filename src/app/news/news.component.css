@@ -1,0 +1,22 @@
+#news {
+  width: 100%;
+  display: flex;
+  border: 2px saddlebrown solid;
+}
+
+#contentNews {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+#imageNews {
+  height: auto;
+  max-width: 100%;
+  display: block;
+}
+
+#imgContainer {
+  width: 20%;
+  border: 2px solid chartreuse;
+}
