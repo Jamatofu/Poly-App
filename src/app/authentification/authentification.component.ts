@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {AuthentificationService} from "../../shared/authentification/authentification.service";
 
 @Component({
   selector: 'app-authentification',
@@ -13,14 +14,15 @@ export class AuthentificationComponent implements OnInit {
   });
 
 
-  constructor(public fb: FormBuilder) { }
+  constructor(public fb: FormBuilder, private loginService: AuthentificationService) { }
 
   ngOnInit() {
   }
 
   doLogin(event) {
-    console.log(event);
     console.log(this.authentificationForm.value);
+    console.log('aaaa => ' + this.loginService.login('jama'));
+    // console.log(this.loginService.login(this.authentificationForm.get('pseudo').value));
   }
 
 }

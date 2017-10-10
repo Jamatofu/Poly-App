@@ -1,4 +1,6 @@
-<app-news *ngFor="let news of newsList"
-          [news]="news">
+<div class="card-deck">
+  <app-news *ngFor="let news of newsList | reverse"
+            [news]="news">
 
-</app-news>
+  </app-news>
+</div>

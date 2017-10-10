@@ -1,22 +1,12 @@
-#news {
-  width: 100%;
-  display: flex;
-  border: 2px saddlebrown solid;
+.image{
+  position:relative;
+  overflow:hidden;
+  padding-bottom:100%;
+}
+.image img{
+  position:absolute;
 }
 
-#contentNews {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
-
-#imageNews {
-  height: auto;
-  max-width: 100%;
-  display: block;
-}
-
-#imgContainer {
-  width: 20%;
-  border: 2px solid chartreuse;
+#lastBlock {
+  border-top: 1px solid rgba(11, 27, 12, 0.08);
 }

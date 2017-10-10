@@ -1,0 +1,16 @@
+md-sidenav {
+  width: 33%;
+}
+
+.icon {
+  font-size: 2em;
+}
+
+.example-sidenav-content {
+  overflow: hidden;
+  background-color: #a6ff1e;
+}
+
+#bodyContent {
+  height: 99vh;
+}

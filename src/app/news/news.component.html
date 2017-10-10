@@ -1,14 +1,12 @@
-<div id="news">
+<div class="card m-2">
+  <!--<div class="image">-->
+    <img class="card-img-top img-thumbnail full-width" [src]="news.urlImage" alt="Card image cap">
+  <!--</div>-->
+  <div class="card-block">
+    <h4 class="card-title text-center text-capitalize p-2">{{ news.title }}</h4>
+    <p class="card-text p-2">{{ news.content }}</p>
 
-    <div id="imgContainer ">
-      <img [src]="news.urlImage" alt=""  id="imageNews"/>
-    </div>
+    <p id="lastBlock" class="card-text text-right p-2 bt"><small class="text-muted">le {{ news.date | date:'medium'}}</small></p>
 
-  <div id="contentNews" class="p-2">
-    <h4 class="mt-0 text-center">{{ news.title }}</h4>
-    <p class="">{{ news.content }}</p>
-
-    <p class="text-right font-italic font-weight-bold">le {{ news.date | date:'medium'}}</p>
   </div>
-
 </div>

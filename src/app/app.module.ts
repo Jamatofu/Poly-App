@@ -13,6 +13,8 @@ import { AuthentificationComponent } from './authentification/authentification.c
 import {ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AuthentificationService} from "../shared/authentification/authentification.service";
+import {HttpClientModule} from "@angular/common/http";
+import {NgPipesModule} from "ngx-pipes";
 
 @NgModule({
   declarations: [
@@ -27,8 +29,11 @@ import {AuthentificationService} from "../shared/authentification/authentificati
     MatSidenavModule,
     BrowserAnimationsModule,
     HttpModule,
+    HttpClientModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgPipesModule,
+    [MatSidenavModule]
   ],
   providers: [NewsService, AuthentificationService, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]

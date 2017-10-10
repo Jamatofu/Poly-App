@@ -1,6 +1,21 @@
-<app-authentification></app-authentification>
+<!--<app-authentification></app-authentification>-->
 
-<app-navbar></app-navbar>
+<md-sidenav-container class="example-container " fullscreen>
+  <md-sidenav #sidenav class="example-sidenav p-3">
+    Lol
+  </md-sidenav>
 
+  <div class="example-sidenav-content fixed-top">
+    <i class="fa fa-bars icon" aria-hidden="true"(click)="sidenav.open()"></i>
+    <i class="fa fa-home icon" aria-hidden="true"></i>
+    <i class="fa fa-envelope-o icon" aria-hidden="true"></i>
+    <i class="fa fa-user-o icon" aria-hidden="true"></i>
+    <i class="fa fa-calendar icon" aria-hidden="true"></i>
+    <i class="fa fa-power-off icon" aria-hidden="true"></i>
+  </div>
 
-<app-news-list></app-news-list>
+  <div id="bodyContent" class="container p-4 mt-3">
+    <app-news-list></app-news-list>
+  </div>
+
+</md-sidenav-container>
