@@ -17,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgPipesModule} from "ngx-pipes";
 import {RouterModule, Routes} from "@angular/router";
 import { CalendrierComponent } from './calendrier/calendrier.component';
+import { CalendarModule } from 'angular-calendar';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent },
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     NgPipesModule,
     [MatSidenavModule, MatMenuModule],
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    CalendarModule.forRoot()
   ],
   providers: [NewsService, AuthentificationService, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
