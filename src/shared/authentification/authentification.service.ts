@@ -12,13 +12,15 @@ export class AuthentificationService {
 
   public login(pseudo: string) {
 
-    console.log('pseudo : ' + pseudo);
+    console.log('Pseudo reçu : ' + pseudo);
     let parameters = new URLSearchParams();
     parameters.append('pseudo', pseudo);
 
-
+    console.log('Envoie de la requete');
     this.http.post(this.url, parameters)
-              .subscribe(data => console.log("xD => " + data));
+              .map(data => console.log(data));
+
+    return true;
   }
 
 }

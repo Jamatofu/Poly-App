@@ -21,9 +21,10 @@ import { CalendarModule } from 'angular-calendar';
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent },
+  { path: 'login', component: AuthentificationComponent },
   // { path: 'produits', component: ProduitListComponent },
   // { path: 'panier', component: PersonnalPanierComponent },
-  { path: '',   redirectTo: '/accueil', pathMatch: 'full' },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'calendrier', component: CalendrierComponent }
   // { path: '**', component: PageNotFoundComponent }
 ];
