@@ -18,16 +18,12 @@ import {NgPipesModule} from "ngx-pipes";
 import {RouterModule, Routes} from "@angular/router";
 import { CalendrierComponent } from './calendrier/calendrier.component';
 import { CalendarModule } from 'angular-calendar';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {RoutingModule} from "./routing/routing.module";
+import { AddNewsComponent } from './admin/add-news/add-news.component';
+import {FileUploader} from "ng2-file-upload";
 
-const appRoutes: Routes = [
-  { path: 'accueil', component: NewsListComponent },
-  { path: 'login', component: AuthentificationComponent },
-  // { path: 'produits', component: ProduitListComponent },
-  // { path: 'panier', component: PersonnalPanierComponent },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'calendrier', component: CalendrierComponent }
-  // { path: '**', component: PageNotFoundComponent }
-];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +31,9 @@ const appRoutes: Routes = [
     NavbarComponent,
     NewsListComponent,
     AuthentificationComponent,
-    CalendrierComponent
+    CalendrierComponent,
+    PageNotFoundComponent,
+    AddNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +44,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FlexLayoutModule,
     NgPipesModule,
+    RoutingModule,
     [MatSidenavModule, MatMenuModule],
-    RouterModule.forRoot(appRoutes),
     CalendarModule.forRoot()
   ],
   providers: [NewsService, AuthentificationService, {provide: LOCALE_ID, useValue: "fr-FR"}],

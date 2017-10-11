@@ -11,10 +11,11 @@
     <i class="fa fa-user-o icon" aria-hidden="true"></i>
 
     <a routerLink="/calendrier" routerLinkActive="active"><i class="fa fa-calendar icon" aria-hidden="true"></i></a>
-    <i class="fa fa-power-off icon" aria-hidden="true"></i>
+    <i class="fa fa-power-off icon" (click)="logOut()" aria-hidden="true"></i>
+    <a routerLink="/ajouter_news" routerLinkActive="active">Ajoute news</a>
   </div>
 
-  <div id="bodyContent" class="container-fluid p-4 mt-3">
+  <div id="bodyContent" class=" p-4 mt-3">
     <router-outlet></router-outlet>
   </div>
 

@@ -25,4 +25,9 @@ export class NewsService {
     console.error(error.message || error);
     return Observable.throw(error.message || error);
   }
+
+  public addNews(news: NewsModel) {
+    console.log('Ajout d\'une news');
+    this.http.post(this.url, news).subscribe();
+  }
 }

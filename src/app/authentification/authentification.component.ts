@@ -23,7 +23,7 @@ export class AuthentificationComponent implements OnInit {
     this.isLog = localStorage.getItem('login') != null;
 
     if(this.isLog) {
-      this.router.navigateByUrl('/accueil');
+      this.router.navigate(['/accueil']);
     }
   }
 

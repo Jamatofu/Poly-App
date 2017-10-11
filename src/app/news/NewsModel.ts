@@ -5,7 +5,7 @@ export class NewsModel {
   public date: string;
 
 
-  constructor(content: string, urlImage: string, title: string, date: string) {
+  constructor(content: string, urlImage: string, title: string, date ?: string) {
     this.content = content;
     this.urlImage = urlImage;
     this.title = title;
