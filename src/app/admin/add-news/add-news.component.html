@@ -1,0 +1,23 @@
+<div class="container">
+
+  <form [formGroup]="addNewsForm" (submit)="addNews()">
+    <div class="form-group">
+      <!--<img [src]="src" *ngIf="src"><br>-->
+      <!--<input type="file" [imageToDataUrl]="options" (imageSelected)="selected($event)">-->
+    </div>
+
+    <div class="form-group">
+      <input type="text" formControlName="title"  placeholder="Titre" class="form-control" required maxlength="60" />
+    </div>
+
+    <div class="form-group">
+      <input type="text" formControlName="urlImage" placeholder="URL de l'image" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <textarea placeholder="Votre message" formControlName="contenu" class="form-control" required></textarea>
+    </div>
+
+    <button type="submit" class="btn-danger">Poster la news</button>
+  </form>
+</div>

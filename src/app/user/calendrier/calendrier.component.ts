@@ -15,6 +15,8 @@ import {
   CalendarEventAction,
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
+import {EvenementService} from "../../../shared/service/evenement/evenement.service";
+import {EvenementModel} from "../../../shared/model/EvenementModel";
 
 
 const colors: any = {
@@ -38,12 +40,13 @@ const colors: any = {
   templateUrl: './calendrier.component.html',
   styleUrls: ['./calendrier.component.css']
 })
-export class CalendrierComponent {
+export class CalendrierComponent implements OnInit{
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: string = 'month';
 
   viewDate: Date = new Date();
+  events: CalendarEvent[] = [];
 
   modalData: {
     action: string;
@@ -53,7 +56,24 @@ export class CalendrierComponent {
   refresh: Subject<any> = new Subject();
   activeDayIsOpen: boolean = true;
 
-  constructor() {
+  constructor(private evenementService: EvenementService) {
+  }
+
+  ngOnInit() {
+    this.evenementService.getEvenement()
+      .subscribe(res => res.json() as EvenementModel[]);
+    // this.evenementService.getEvenement().subscribe(res =>
+    //   this.events.push({
+    //     start: subDays(startOfDay(new Date()), 1),
+    //     title: "cool",
+    //     color: colors.blue
+    //   }));
+
+    // this.events.push({
+    //   start: subDays(startOfDay(new Date()), 1),
+    //   title: "cool",
+    //   color: colors.blue
+    // });
   }
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {

@@ -2,26 +2,35 @@ import { BrowserModule } from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NewsComponent } from './news/news.component';
+import { NewsComponent } from './user/news/news.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import {MatSidenavModule, MatMenuModule} from '@angular/material';
+import {MatSidenavModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule} from '@angular/material';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { NewsListComponent } from './news-list/news-list.component';
-import {NewsService} from "../shared/news/news.service";
+import { NewsListComponent } from './user/news-list/news-list.component';
+import {NewsService} from "../shared/service/news/news.service";
 import {HttpModule} from "@angular/http";
 import { AuthentificationComponent } from './authentification/authentification.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
-import {AuthentificationService} from "../shared/authentification/authentification.service";
+import {AuthentificationService} from "../shared/service/authentification/authentification.service";
 import {HttpClientModule} from "@angular/common/http";
 import {NgPipesModule} from "ngx-pipes";
-import {RouterModule, Routes} from "@angular/router";
-import { CalendrierComponent } from './calendrier/calendrier.component';
+import { CalendrierComponent } from './user/calendrier/calendrier.component';
 import { CalendarModule } from 'angular-calendar';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './user/page-not-found/page-not-found.component';
 import {RoutingModule} from "./routing/routing.module";
 import { AddNewsComponent } from './admin/add-news/add-news.component';
-import {FileUploader} from "ng2-file-upload";
+// import {ImageToDataUrlModule} from "ngx-image2dataurl";
+import { MessagerieComponent } from './user/messagerie/messagerie-global/messagerie.component';
+import { LireMessageComponent } from './user/messagerie/lire-message/lire-message.component';
+import { EcrireMessageComponent } from './user/messagerie/ecrire-message/ecrire-message.component';
+import { AddEvenementComponent } from './admin/add-evenement/add-evenement.component';
+import {BsDatepickerModule} from "ngx-bootstrap";
+import {EvenementService} from "../shared/service/evenement/evenement.service";
+import { ListMessagePriveComponent } from './user/messagerie/list-message-prive/list-message-prive.component';
+import {MessagerieService} from "../shared/service/messagerie/messagerie.service";
+import {NguiAutoComplete, NguiAutoCompleteModule} from "@ngui/auto-complete";
+import {Ng2CompleterModule} from "ng2-completer";
 
 
 @NgModule({
@@ -33,7 +42,12 @@ import {FileUploader} from "ng2-file-upload";
     AuthentificationComponent,
     CalendrierComponent,
     PageNotFoundComponent,
-    AddNewsComponent
+    AddNewsComponent,
+    MessagerieComponent,
+    LireMessageComponent,
+    EcrireMessageComponent,
+    AddEvenementComponent,
+    ListMessagePriveComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +58,14 @@ import {FileUploader} from "ng2-file-upload";
     ReactiveFormsModule,
     FlexLayoutModule,
     NgPipesModule,
+    // ImageToDataUrlModule,
     RoutingModule,
-    [MatSidenavModule, MatMenuModule],
+    Ng2CompleterModule,
+    [MatSidenavModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule],
+    BsDatepickerModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

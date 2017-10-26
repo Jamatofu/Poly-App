@@ -1,0 +1,17 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <th>Titre</th>
+      <th>Expéditeur</th>
+      <th>Date d'envoie</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let message of messageList | reverse" (click)="ouvrirMessage(message)">
+        <td>{{ message.title}}</td>
+        <td>{{ message.idSender}}</td>
+        <td>{{ message.sendDate}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

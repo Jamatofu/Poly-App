@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Titre : {{ message.title }}</h2>
+  <small class="text-muted">De {{ message.idSender }}</small>
+  <p>{{ message.content }}</p>
+
+  <button type="button" (click)="repondre()" class="btn btn-lg btn-success">Répondre</button>
+</div>

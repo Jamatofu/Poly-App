@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ReplaySubject} from "rxjs/ReplaySubject";
-import {NewsModel} from "../../app/news/NewsModel";
+import {NewsModel} from "../../../app/user/news/NewsModel";
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
@@ -19,6 +19,11 @@ export class NewsService {
   public getNews(){
     console.log("No");
     return this.http.get(this.url).map(res => res.json());
+  }
+
+  public getOneNews(idNews: string) {
+    let url = this.url + "/" + idNews;
+    return this.http.get(url).map(res => res.json());
   }
 
   private handleErrorObservable (error: Response | any) {
