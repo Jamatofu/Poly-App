@@ -32,4 +32,8 @@ export class NewsComponent implements OnInit {
     }
   }
 
+  isDataLoaded() : boolean {
+    return !isUndefined(this.news);
+  }
+
 }

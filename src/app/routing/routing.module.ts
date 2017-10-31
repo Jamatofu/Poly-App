@@ -10,6 +10,8 @@ import {NewsComponent} from "../user/news/news.component";
 import {AddEvenementComponent} from "../admin/add-evenement/add-evenement.component";
 import {LireMessageComponent} from "../user/messagerie/lire-message/lire-message.component";
 import {EcrireMessageComponent} from "../user/messagerie/ecrire-message/ecrire-message.component";
+import {ListDefiComponent} from "../user/defi/list-defi/list-defi.component";
+import {AddDefiComponent} from "../admin/add-defi/add-defi.component";
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent },
@@ -20,6 +22,8 @@ const appRoutes: Routes = [
   { path: 'ajouter_evenement', component: AddEvenementComponent },
   { path: 'news/:id', component: NewsComponent},
   { path: 'message/:id', component: LireMessageComponent},
+  { path: 'defi', component: ListDefiComponent},
+  { path: 'ajouter_defi', component: AddDefiComponent},
   { path: '',   redirectTo: '/login', pathMatch: 'full'},
   { path: 'calendrier', component: CalendrierComponent, data: {title: 'Calendrier'} },
   { path: '**', component: PageNotFoundComponent }

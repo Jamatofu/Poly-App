@@ -10,7 +10,7 @@ import { NewsListComponent } from './user/news-list/news-list.component';
 import {NewsService} from "../shared/service/news/news.service";
 import {HttpModule} from "@angular/http";
 import { AuthentificationComponent } from './authentification/authentification.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AuthentificationService} from "../shared/service/authentification/authentification.service";
 import {HttpClientModule} from "@angular/common/http";
@@ -31,6 +31,10 @@ import { ListMessagePriveComponent } from './user/messagerie/list-message-prive/
 import {MessagerieService} from "../shared/service/messagerie/messagerie.service";
 import {NguiAutoComplete, NguiAutoCompleteModule} from "@ngui/auto-complete";
 import {Ng2CompleterModule} from "ng2-completer";
+import { ListDefiComponent } from './user/defi/list-defi/list-defi.component';
+import { DefiBlockComponent } from './user/defi/defi-block/defi-block.component';
+import {DefiService} from "../shared/service/defi/defi.service";
+import { AddDefiComponent } from './admin/add-defi/add-defi.component';
 
 
 @NgModule({
@@ -47,7 +51,10 @@ import {Ng2CompleterModule} from "ng2-completer";
     LireMessageComponent,
     EcrireMessageComponent,
     AddEvenementComponent,
-    ListMessagePriveComponent
+    ListMessagePriveComponent,
+    ListDefiComponent,
+    DefiBlockComponent,
+    AddDefiComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +65,7 @@ import {Ng2CompleterModule} from "ng2-completer";
     ReactiveFormsModule,
     FlexLayoutModule,
     NgPipesModule,
+    FormsModule,
     // ImageToDataUrlModule,
     RoutingModule,
     Ng2CompleterModule,
@@ -65,7 +73,7 @@ import {Ng2CompleterModule} from "ng2-completer";
     BsDatepickerModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {MemberModel} from "../../../app/authentification/MemberModel";
+import {MemberModel} from "../../model/MemberModel";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 
