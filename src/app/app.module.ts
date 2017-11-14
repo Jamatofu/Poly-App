@@ -36,6 +36,7 @@ import { DefiBlockComponent } from './user/defi/defi-block/defi-block.component'
 import {DefiService} from "../shared/service/defi/defi.service";
 import { AddDefiComponent } from './admin/add-defi/add-defi.component';
 import {AuthGuard} from "./authentification/AuthGard";
+import { ProfilComponent } from './user/profil/profil.component';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import {AuthGuard} from "./authentification/AuthGard";
     ListDefiComponent,
     DefiBlockComponent,
     AddDefiComponent,
+    ProfilComponent,
   ],
   imports: [
     BrowserModule,

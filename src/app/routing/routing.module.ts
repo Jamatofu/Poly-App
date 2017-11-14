@@ -13,6 +13,7 @@ import {EcrireMessageComponent} from "../user/messagerie/ecrire-message/ecrire-m
 import {ListDefiComponent} from "../user/defi/list-defi/list-defi.component";
 import {AddDefiComponent} from "../admin/add-defi/add-defi.component";
 import {AuthGuard} from "../authentification/AuthGard";
+import {ProfilComponent} from "../user/profil/profil.component";
 
 const appRoutes: Routes = [
   // { path: 'accueil', component: NewsListComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: 'news/:id', component: NewsComponent, canActivate: [AuthGuard] },
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
+  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'ajouter_defi', component: AddDefiComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthentificationComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },

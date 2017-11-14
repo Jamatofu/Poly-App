@@ -27,8 +27,9 @@ export class AuthentificationComponent {
     this.loading = true;
     this.loginService.login(user)
       .subscribe(result => {
-        if(result === true) {
-          this.router.navigate(['/']);
+        if(result == true) {
+          console.log('Redirection vers la page d\'accueil');
+          this.router.navigate(['/accueil']);
         } else {
           this.error = 'Mdp ou user faux';
           this.loading = false;
