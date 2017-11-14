@@ -12,4 +12,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
+  public logOut() {
+    if(localStorage.getItem('currentUser') != null) {
+      localStorage.removeItem('currentUser');
+      console.log('Deconnexion');
+
+    }
+  }
 }

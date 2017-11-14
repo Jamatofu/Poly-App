@@ -5,7 +5,7 @@ export class MemberModel {
   public email: string;
 
 
-  constructor(id: number, pseudo: string, password: string, email: string) {
+  constructor(pseudo: string, password: string, email: string, id ?: number) {
     this.id = id;
     this.pseudo = pseudo;
     this.password = password;

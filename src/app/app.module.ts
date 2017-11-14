@@ -35,6 +35,7 @@ import { ListDefiComponent } from './user/defi/list-defi/list-defi.component';
 import { DefiBlockComponent } from './user/defi/defi-block/defi-block.component';
 import {DefiService} from "../shared/service/defi/defi.service";
 import { AddDefiComponent } from './admin/add-defi/add-defi.component';
+import {AuthGuard} from "./authentification/AuthGard";
 
 
 @NgModule({
@@ -54,7 +55,7 @@ import { AddDefiComponent } from './admin/add-defi/add-defi.component';
     ListMessagePriveComponent,
     ListDefiComponent,
     DefiBlockComponent,
-    AddDefiComponent
+    AddDefiComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,7 @@ import { AddDefiComponent } from './admin/add-defi/add-defi.component';
     BsDatepickerModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, AuthGuard,{provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

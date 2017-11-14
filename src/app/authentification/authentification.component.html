@@ -1,5 +1,5 @@
-<div [ngClass]="{'hidden' : this.isLog}" fxLayout="row" id="windows">
-  <form [formGroup]="authentificationForm" id="authentificationForm" class="p-5 text-center" (ngSubmit)="doLogin($event)">
+<div fxLayout="row" id="windows">
+  <form [formGroup]="authentificationForm" id="authentificationForm" class="p-5 text-center" (ngSubmit)="login($event)">
 
     <div class="row form-group">
         <input formControlName="pseudo" class="form-control" type="text" id="pseudo" placeholder="Pseudo"/>

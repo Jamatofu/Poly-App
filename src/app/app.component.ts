@@ -7,11 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-
-  public logOut() {
-    if(localStorage.getItem('login') != null) {
-      localStorage.removeItem('login');
-      console.log('Deconnexion');
-    }
-  }
 }
