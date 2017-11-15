@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {MemberModel} from "../../model/MemberModel";
 import {Http, RequestOptions, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
+import {ProfilModel} from "../../model/ProfilModel";
 
 @Injectable()
 export class AuthentificationService {
@@ -30,6 +31,21 @@ export class AuthentificationService {
           return false;
         }
       });
+  }
+
+  addMember(user: MemberModel) {
+    console.log("Ajout du membre : " + JSON.stringify(user));
+    this.http.post("http://localhost:3000/member", user).subscribe();
+  }
+
+  addProfil(profil: ProfilModel) {
+    console.log("Ajout du profil : " + JSON.stringify(profil));
+    this.http.post("http://localhost:3000/profil", JSON.stringify(profil)).subscribe();
+  }
+
+  getProfil(pseudo: string) {
+    return this.http.get("http://localhost:3000/profil/" + pseudo)
+      .map(res => res.json());
   }
 
 

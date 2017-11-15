@@ -4,9 +4,11 @@ export class ProfilModel {
   public nom: string;
   public surnom: string;
   public sexe: boolean;
+  public pseudo: string;
 
 
-  constructor(urlProfil: string, prenom: string, nom: string, surnom: string, sexe: boolean) {
+  constructor(pseudo: string, urlProfil: string, prenom: string, nom: string, surnom: string, sexe: boolean) {
+    this.pseudo = pseudo;
     this.urlProfil = urlProfil;
     this.prenom = prenom;
     this.nom = nom;

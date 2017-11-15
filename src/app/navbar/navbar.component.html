@@ -11,6 +11,10 @@
 
       <!-- ADMIN PART -->
       <li class="list-group-item list-group-item-action active">Admin</li>
+
+      <a routerLink="/ajouter_membre" routerLinkActive="active" (click)="sidenav.close()">
+        <li class="list-group-item list-group-item-action">Ajoute un membre</li>
+      </a>
       <a routerLink="/ajouter_news" routerLinkActive="active" (click)="sidenav.close()">
         <li class="list-group-item list-group-item-action">Ajoute news</li>
       </a>
@@ -25,7 +29,7 @@
   </md-sidenav>
 
   <div class="example-sidenav-content fixed-top">
-    <i class="fa fa-bars icon" aria-hidden="true"(click)="sidenav.open()"></i>
+    <i class="fa fa-bars icon" aria-hidden="true" (click)="sidenav.open()"></i>
     <a routerLink="/accueil" routerLinkActive="active"> <i class="fa fa-home icon" aria-hidden="true"></i></a>
     <a routerLink="/messagerie" routerLinkActive="active"> <i class="fa fa-envelope-o icon" aria-hidden="true"></i></a>
 

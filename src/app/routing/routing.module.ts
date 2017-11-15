@@ -14,6 +14,7 @@ import {ListDefiComponent} from "../user/defi/list-defi/list-defi.component";
 import {AddDefiComponent} from "../admin/add-defi/add-defi.component";
 import {AuthGuard} from "../authentification/AuthGard";
 import {ProfilComponent} from "../user/profil/profil.component";
+import {AddMemberComponent} from "../admin/add-member/add-member.component";
 
 const appRoutes: Routes = [
   // { path: 'accueil', component: NewsListComponent},
@@ -22,10 +23,12 @@ const appRoutes: Routes = [
   { path: 'messagerie/:id', component: EcrireMessageComponent, canActivate: [AuthGuard]  },
   { path: 'ajouter_news', component: AddNewsComponent, canActivate: [AuthGuard]  },
   { path: 'ajouter_evenement', component: AddEvenementComponent, canActivate: [AuthGuard]  },
+  { path: 'ajouter_membre', component: AddMemberComponent, canActivate: [AuthGuard]  },
   { path: 'news/:id', component: NewsComponent, canActivate: [AuthGuard] },
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
   { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
+  { path: 'profil/:pseudo', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'ajouter_defi', component: AddDefiComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthentificationComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
