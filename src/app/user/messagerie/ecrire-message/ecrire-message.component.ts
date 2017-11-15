@@ -5,6 +5,7 @@ import {MessageModel} from "../../../../shared/model/MessageModel";
 import {ActivatedRoute, Params} from "@angular/router";
 import {isUndefined} from "util";
 import {CompleterData, CompleterService} from "ng2-completer";
+import {MemberModel} from "../../../../shared/model/MemberModel";
 
 @Component({
   selector: 'app-ecrire-message',
@@ -19,6 +20,7 @@ export class EcrireMessageComponent implements OnInit {
   });
 
   public futurReceiver: string;
+  public possibleReceicer: MemberModel[] = [];
 
 
   protected searchStr: string;
@@ -43,13 +45,17 @@ export class EcrireMessageComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.futurReceiver = params['id'];
     });
+
+    this.messagerieService.getListMember()
+      .subscribe(data => this.possibleReceicer = data);
   }
 
   sendMessage() {
+    let pseudo: string = JSON.parse(localStorage.getItem('currentUser')).pseudo;
     this.messagerieService.sendMessage(new MessageModel(this.addMpForm.value.title,
       this.addMpForm.value.content,
       Date.now().toLocaleString(),
-      "Pierre",
+      pseudo,
       this.addMpForm.value.receiver));
   }
 

@@ -18,7 +18,7 @@
     <div class="form-group">
       <select class="custom-select" formControlName="receiver">
         <option *ngIf="receiverIsNull()" value="{{futurReceiver}}" selected> {{ futurReceiver }}</option>
-        <option value="1">Clément</option>
+        <option *ngFor="let member of possibleReceicer" value="1">{{ member.pseudo }}</option>
       </select>
 
     </div>

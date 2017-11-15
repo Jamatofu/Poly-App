@@ -31,4 +31,8 @@ export class MessagerieService {
     console.log("Récupere le message " + id);
     return this.http.get(this.url + "/idMessage/" + id).map(res => res.json());
   }
+
+  getListMember() {
+    return this.http.get("http://localhost:3000/member").map(res => res.json());
+  }
 }
