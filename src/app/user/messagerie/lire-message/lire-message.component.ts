@@ -30,7 +30,7 @@ export class LireMessageComponent implements OnInit {
   }
 
   repondre() {
-    this.router.navigateByUrl("/messagerie/" + this.message.idSender);
+    this.router.navigateByUrl("/messagerie/" + this.message.pseudoSender);
   }
 
 }
