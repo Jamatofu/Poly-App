@@ -22,24 +22,7 @@ export class EcrireMessageComponent implements OnInit {
   public futurReceiver: string;
   public possibleReceicer: MemberModel[] = [];
 
-
-  protected searchStr: string;
-  protected captain: string;
-  protected dataService: CompleterData;
-  protected searchData = [
-    { color: 'red', value: '#f00' },
-    { color: 'green', value: '#0f0' },
-    { color: 'blue', value: '#00f' },
-    { color: 'cyan', value: '#0ff' },
-    { color: 'magenta', value: '#f0f' },
-    { color: 'yellow', value: '#ff0' },
-    { color: 'black', value: '#000' }
-  ];
-  protected captains = ['James T. Kirk', 'Benjamin Sisko', 'Jean-Luc Picard', 'Spock', 'Jonathan Archer', 'Hikaru Sulu', 'Christopher Pike', 'Rachel Garrett' ];
-
-
-  constructor(private fb: FormBuilder, private messagerieService: MessagerieService, private activatedRoute: ActivatedRoute, private completerService: CompleterService) {
-    this.dataService = completerService.local(this.searchData, 'color', 'color');}
+  constructor(private fb: FormBuilder, private messagerieService: MessagerieService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -51,12 +34,13 @@ export class EcrireMessageComponent implements OnInit {
   }
 
   sendMessage() {
+    let id: string = JSON.parse(localStorage.getItem('currentUser')).id;
     let pseudo: string = JSON.parse(localStorage.getItem('currentUser')).pseudo;
     this.messagerieService.sendMessage(new MessageModel(this.addMpForm.value.title,
       this.addMpForm.value.content,
-      Date.now().toLocaleString(),
-      pseudo,
-      this.addMpForm.value.receiver));
+      id,
+      this.addMpForm.value.receiver,
+      pseudo));
   }
 
   receiverIsNull() {

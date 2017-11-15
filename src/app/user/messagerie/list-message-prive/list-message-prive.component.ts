@@ -14,7 +14,9 @@ export class ListMessagePriveComponent implements OnInit {
   constructor(private messagerieService: MessagerieService, private router: Router) { }
 
   ngOnInit() {
-    this.messagerieService.getMessage("1").subscribe(x => this.messageList = x);
+    let id: string = JSON.parse(localStorage.getItem("currentUser")).id;
+    console.log("Récupération de la lsite des messages privés de l'id : " + id);
+    this.messagerieService.getMessage(id).subscribe(x => this.messageList = x);
   }
 
   ouvrirMessage(message: MessageModel) {

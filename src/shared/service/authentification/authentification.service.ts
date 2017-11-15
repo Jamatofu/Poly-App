@@ -24,8 +24,9 @@ export class AuthentificationService {
         let token = response.json() && response.json().token;
         if(token) {
           this.token = token;
-          localStorage.setItem('currentUser', JSON.stringify({pseudo: user.pseudo, token: token}));
-          console.log("Authentification réussie.");
+          let id = response.json().id;
+          localStorage.setItem('currentUser', JSON.stringify({pseudo: user.pseudo, token: token, id: id}));
+          console.log("Authentification réussie. Id : " + id);
           return true;
         } else {
           return false;

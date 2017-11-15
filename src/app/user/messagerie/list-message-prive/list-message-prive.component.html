@@ -9,8 +9,8 @@
     <tbody>
       <tr *ngFor="let message of messageList | reverse" (click)="ouvrirMessage(message)">
         <td>{{ message.title}}</td>
-        <td>{{ message.idSender}}</td>
-        <td>{{ message.sendDate}}</td>
+        <td>{{ message.pseudoSender}}</td>
+        <td>{{ message.date | date:'fullDate':'':'fr'}}</td>
       </tr>
     </tbody>
   </table>
