@@ -33,6 +33,6 @@ export class NewsService {
 
   public addNews(news: NewsModel) {
     console.log('Ajout d\'une news');
-    this.http.post(this.url, news).subscribe();
+    //this.http.post(this.url, news).subscribe();
   }
 }

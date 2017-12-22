@@ -1,6 +1,6 @@
 <div class="container">
 
-  <form [formGroup]="addDefiForm" (submit)="addDefi()">
+  <form [formGroup]="addDefiForm" (submit)="addDefi(selectedCategory.value)">
     <div class="form-group">
       <!--<img [src]="src" *ngIf="src"><br>-->
       <!--<input type="file" [imageToDataUrl]="options" (imageSelected)="selected($event)">-->
@@ -8,6 +8,15 @@
 
     <div class="form-group">
       <input type="text" formControlName="name"  placeholder="Nom du défi" class="form-control" required maxlength="60" />
+    </div>
+
+    <div class="form-group">
+      <select #selectedCategory class="custom-select" formControlName="categorie">
+        <option selected>Sélectionner une catégorie</option>
+        <option value="alcool">Alcool</option>
+        <option value="ski">Ski</option>
+        <option value="sexe">Sexe</option>
+    </select>
     </div>
 
     <div class="form-group">

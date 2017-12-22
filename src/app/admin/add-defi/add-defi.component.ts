@@ -12,7 +12,8 @@ export class AddDefiComponent implements OnInit {
   public addDefiForm = this.fb.group({
     name: [""],
     nbPoint: [""],
-    description: [""]
+    description: [""],
+    categorie: [""]
   });
 
   constructor(private fb: FormBuilder, private defiService: DefiService) { }
@@ -20,9 +21,9 @@ export class AddDefiComponent implements OnInit {
   ngOnInit() {
   }
 
-  public addDefi() {
+  public addDefi(categorie: string) {
     console.log("Ajouter un défi");
-    let defi = new DefiModel(this.addDefiForm.value.name, this.addDefiForm.value.description, this.addDefiForm.value.nbPoint);
+    let defi = new DefiModel(this.addDefiForm.value.name, this.addDefiForm.value.description, this.addDefiForm.value.nbPoint, categorie);
     this.defiService.addDefi(defi);
   }
 
