@@ -12,14 +12,19 @@ import {ReplaySubject} from "rxjs/ReplaySubject";
 export class ListDefiComponent implements OnInit {
   public listDefi: DefiModel[] = [];
   public $defiList: Observable<DefiModel[]>;
+  public categorie : string;
 
   constructor(private defiService: DefiService) {
     this.$defiList = new ReplaySubject(1);
   }
 
   ngOnInit() {
-    this.$defiList = this.defiService.getListDefi();
-    this.$defiList.subscribe(listDefi => this.listDefi = listDefi);
+    this.sortDefiList("vide");
+  }
+
+  sortDefiList(categorie :string) {
+    this.$defiList = this.defiService.getListDefi(categorie);
+    this.$defiList.subscribe(listDefi => {this.listDefi = listDefi});
   }
 
 }

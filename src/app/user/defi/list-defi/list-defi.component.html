@@ -1,3 +1,12 @@
-<div id="listDefiBlock">
+<div>
+  <p>Trier par catégorie : </p>
+
+  <select class="custom-select" (ngModelChange)="sortDefiList($event)" [(ngModel)]="categorie">
+    <option value="vide"></option>
+    <option value="alcool">Alcool</option>
+    <option value="sexe">Sexe</option>
+    <option value="ski">Ski</option>
+  </select>
+
   <app-defi-block *ngFor="let defi of listDefi" [defiModel]="defi"></app-defi-block>
 </div>

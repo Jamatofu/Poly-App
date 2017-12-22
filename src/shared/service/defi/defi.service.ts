@@ -8,8 +8,12 @@ export class DefiService {
 
   constructor(private http: Http) { }
 
-  getListDefi() {
-    return this.http.get(this.url).map(res => res.json());
+  getListDefi(categorie: string) {
+    if(categorie == "vide") {
+      return this.http.get(this.url).map(res => res.json());
+    } else {
+      return this.http.get(this.url + "/" + categorie).map(res => res.json());
+    }
   }
 
   addDefi(defi: DefiModel) {
