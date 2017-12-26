@@ -42,8 +42,8 @@ export class AddMemberComponent implements OnInit {
   }
 
   private generatePassword(): string {
-    let password = ';'
-    let char = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    let password = '';
+    let char = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
     for(let i = 0; i < Math.floor(Math.random() * 6) + 1; i++) {
       password += char.charAt(Math.floor(Math.random() * char.length));

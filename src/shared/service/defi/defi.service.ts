@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {DefiModel} from "../../model/DefiModel";
+import {Categorie} from "../../enum/Categorie";
+import {DefiAccepteModel} from "../../model/DefiAccepteModel";
 
 @Injectable()
 export class DefiService {
@@ -8,8 +10,8 @@ export class DefiService {
 
   constructor(private http: Http) { }
 
-  getListDefi(categorie: string) {
-    if(categorie == "vide") {
+  getListDefi(categorie: Categorie) {
+    if(categorie == Categorie.VIDE) {
       return this.http.get(this.url).map(res => res.json());
     } else {
       return this.http.get(this.url + "/" + categorie).map(res => res.json());
@@ -21,4 +23,8 @@ export class DefiService {
     this.http.post(this.url, defi).subscribe();
   }
 
+  acceptDefi(defi: DefiAccepteModel) {
+    console.log("Défi accepté");
+    this.http.post(this.url + "/accept", defi).subscribe();
+  }
 }
