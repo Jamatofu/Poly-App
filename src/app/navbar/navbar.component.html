@@ -9,22 +9,23 @@
         <li class="list-group-item list-group-item-action">Liste des défis</li>
       </a>
 
-      <!-- ADMIN PART -->
-      <li class="list-group-item list-group-item-action active">Admin</li>
+      <div *ngIf="isAdmin()">
+        <!-- ADMIN PART -->
+        <li class="list-group-item list-group-item-action active">Admin</li>
 
-      <a routerLink="/ajouter_membre" routerLinkActive="active" (click)="sidenav.close()">
-        <li class="list-group-item list-group-item-action">Ajoute un membre</li>
-      </a>
-      <a routerLink="/ajouter_news" routerLinkActive="active" (click)="sidenav.close()">
-        <li class="list-group-item list-group-item-action">Ajoute news</li>
-      </a>
-      <a routerLink="/ajouter_evenement" routerLinkActive="active" (click)="sidenav.close()">
-        <li class="list-group-item list-group-item-action">Ajoute evènement</li>
-      </a>
-      <a routerLink="/ajouter_defi" routerLinkActive="active" (click)="sidenav.close()">
-        <li class="list-group-item list-group-item-action">Ajoute défi</li>
-      </a>
-
+        <a routerLink="/ajouter_membre" routerLinkActive="active" (click)="sidenav.close()">
+          <li class="list-group-item list-group-item-action">Ajoute un membre</li>
+        </a>
+        <a routerLink="/ajouter_news" routerLinkActive="active" (click)="sidenav.close()">
+          <li class="list-group-item list-group-item-action">Ajoute news</li>
+        </a>
+        <a routerLink="/ajouter_evenement" routerLinkActive="active" (click)="sidenav.close()">
+          <li class="list-group-item list-group-item-action">Ajoute evènement</li>
+        </a>
+        <a routerLink="/ajouter_defi" routerLinkActive="active" (click)="sidenav.close()">
+          <li class="list-group-item list-group-item-action">Ajoute défi</li>
+        </a>
+      </div>
     </ul>
   </md-sidenav>
 

@@ -33,7 +33,7 @@ export class AddMemberComponent implements OnInit {
     let pseudo = nom + prenom;
     let password = this.generatePassword();
     let newProfil = new ProfilModel(pseudo, '', prenom, nom, '', this.sexe);
-    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail);
+    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, false);
 
 
 

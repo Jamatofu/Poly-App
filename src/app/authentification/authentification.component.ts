@@ -22,7 +22,7 @@ export class AuthentificationComponent {
   constructor(public fb: FormBuilder, private loginService: AuthentificationService, private router: Router) { }
 
   login() {
-    let user = new MemberModel(this.authentificationForm.value.pseudo, this.authentificationForm.value.password, '');
+    let user = new MemberModel(this.authentificationForm.value.pseudo, this.authentificationForm.value.password, '', false);
 
     this.loading = true;
     this.loginService.login(user)

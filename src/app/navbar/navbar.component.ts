@@ -21,4 +21,12 @@ export class NavbarComponent implements OnInit {
 
     }
   }
+
+  public isAdmin(): boolean {
+    if(localStorage.getItem('currentUser') != null) {
+      return JSON.parse(localStorage.getItem('currentUser')).admin;
+    }
+
+    return false;
+  }
 }
