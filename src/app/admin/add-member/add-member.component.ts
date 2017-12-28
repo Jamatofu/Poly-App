@@ -15,7 +15,8 @@ export class AddMemberComponent implements OnInit {
     nom: [""],
     prenom: [""],
     mail: [""],
-    sexe: [""]
+    sexe: [""],
+    admin: [""]
     // pseudo: ["", Validators.required, Validators.minLength(5)],
     // password: ["", Validators.required]
   });
@@ -33,7 +34,7 @@ export class AddMemberComponent implements OnInit {
     let pseudo = nom + prenom;
     let password = this.generatePassword();
     let newProfil = new ProfilModel(pseudo, '', prenom, nom, '', this.sexe);
-    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, false);
+    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, false, this.addMemberForm.value.admin);
 
 
 

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
 
   <form [formGroup]="addMemberForm" (submit)="addMember()">
     <div class="form-group">
@@ -14,9 +14,14 @@
     </div>
 
     <div class="form-group">
-      <input type="radio" [(ngModel)]="sexe" formControlName="sexe" name="sexe" value="false">Homme
+      <input type="radio" [(ngModel)]="sexe" formControlName="sexe" name="sexe" value="false" >Homme
       <input type="radio" [(ngModel)]="sexe" formControlName="sexe" name="sexe" value="true">Femme
 
+    </div>
+
+    <div class="form-group">
+      <input type="radio" [(ngModel)]="sexe" formControlName="admin" name="admin" value="false" >Non admin
+      <input type="radio" [(ngModel)]="sexe" formControlName="admin" name="admin" value="true">Admin
     </div>
 
     <button type="submit" class="btn-danger">Ajouter le membre</button>
