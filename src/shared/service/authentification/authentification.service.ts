@@ -26,7 +26,7 @@ export class AuthentificationService {
           this.token = token;
           let id = response.json().id;
           localStorage.setItem('currentUser', JSON.stringify({pseudo: user.pseudo, token: token, id: id}));
-          console.log("Authentification réussie. Id : " + id);
+          console.log("Authentification réussie. Id : " + id + " " + user.pseudo);
           return true;
         } else {
           return false;
@@ -41,12 +41,12 @@ export class AuthentificationService {
 
   addProfil(profil: ProfilModel) {
     console.log("Ajout du profil : " + JSON.stringify(profil));
-    this.http.post("http://localhost:3000/profil", JSON.stringify(profil)).subscribe();
+    this.http.post("http://localhost:3000/profil", profil).subscribe();
   }
 
   getProfil(pseudo: string) {
     return this.http.get("http://localhost:3000/profil/" + pseudo)
-      .map(res => res.json());
+      .map((res : Response) => res.json());
   }
 
 

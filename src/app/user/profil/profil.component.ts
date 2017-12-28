@@ -14,28 +14,23 @@ import {ReplaySubject} from "rxjs/ReplaySubject";
 export class ProfilComponent implements OnInit {
   public profil: ProfilModel;
   public $profil: Observable<ProfilModel>;
+  public isDataLoaded: boolean = false;
 
   constructor(private profilService: AuthentificationService, private activatedRoute: ActivatedRoute) {
     this.$profil = new ReplaySubject(1);
-
-
-    let pseudo = JSON.parse(localStorage.getItem('currentUser')).pseudo;
-
-    this.activatedRoute.params.subscribe((params: Params) => {
-      pseudo = params['pseudo'];
-    });
-
-    this.$profil = this.profilService.getProfil(pseudo);
-    this.$profil.subscribe(res => { this.profil = res; });
   }
 
   ngOnInit() {
+    let pseudo = JSON.parse(localStorage.getItem('currentUser')).pseudo;
+    this.activatedRoute.params.subscribe((params: Params) => {
+      if(params['pseudo'] != null) {
+        console.log("Pseudo log :" + params['pseudo']);
+        pseudo = params['pseudo'];
+      }
+    });
+    this.$profil = this.profilService.getProfil(pseudo);
+    this.$profil.subscribe(res => this.profil = res,
+                          error => console.log("Erreur : " + error),
+                          () => { console.log("Chargement profil fini"); this.isDataLoaded = true; });
   }
-
-
-
-  isDataLoaded() : boolean {
-    return !isUndefined(this.profil);
-  }
-
 }

@@ -1,7 +1,4 @@
-<div>
+<div *ngIf="this.$profil | async">
   <!--<img [src]="profil.urlProfil" class="img-thumbnail">-->
-  <p>{{ profil?.prenom }} {{ profil?.nom}} aka {{ profil?.surnom}}</p>
-
+  <p>{{ profil.prenom }} {{ profil?.nom}} aka {{ profil?.surnom}}</p>
 </div>
-
-<p *ngIf="isDataLoaded()">{{ profil.prenom}}</p>
