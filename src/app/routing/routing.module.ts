@@ -15,22 +15,29 @@ import {AddDefiComponent} from "../admin/add-defi/add-defi.component";
 import {AuthGuard} from "../authentification/AuthGard";
 import {ProfilComponent} from "../user/profil/profil.component";
 import {AddMemberComponent} from "../admin/add-member/add-member.component";
+import {AdminGuard} from "../admin/AdminGuard";
 
 const appRoutes: Routes = [
-  // { path: 'accueil', component: NewsListComponent},
   { path: 'accueil', component: NewsListComponent, canActivate: [AuthGuard] },
   { path: 'messagerie', component: MessagerieComponent, canActivate: [AuthGuard] },
   { path: 'messagerie/:id', component: EcrireMessageComponent, canActivate: [AuthGuard]  },
-  { path: 'ajouter_news', component: AddNewsComponent, canActivate: [AuthGuard]  },
-  { path: 'ajouter_evenement', component: AddEvenementComponent, canActivate: [AuthGuard]  },
-  { path: 'ajouter_membre', component: AddMemberComponent, canActivate: [AuthGuard]  },
   { path: 'news/:id', component: NewsComponent, canActivate: [AuthGuard] },
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
   { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'profil/:pseudo', component: ProfilComponent, canActivate: [AuthGuard] },
-  { path: 'ajouter_defi', component: AddDefiComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthentificationComponent},
+  { path: 'admin', canActivate: [AdminGuard], children: [
+    {
+      path: '',
+      children: [
+        { path: 'ajouter_news', component: AddNewsComponent, canActivate: [AuthGuard]  },
+        { path: 'ajouter_evenement', component: AddEvenementComponent, canActivate: [AuthGuard]  },
+        { path: 'ajouter_membre', component: AddMemberComponent, canActivate: [AuthGuard]  },
+        { path: 'ajouter_defi', component: AddDefiComponent, canActivate: [AuthGuard] },
+      ]
+    }
+  ]},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'calendrier', component: CalendrierComponent, data: {title: 'Calendrier'}, canActivate: [AuthGuard]  },
   { path: '**', component: PageNotFoundComponent }

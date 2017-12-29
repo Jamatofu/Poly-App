@@ -11,6 +11,7 @@ import {AuthentificationService} from "../../../shared/service/authentification/
 })
 export class AddMemberComponent implements OnInit {
   public sexe: boolean;
+  public admin: boolean;
   public addMemberForm = this.fb.group({
     nom: [""],
     prenom: [""],
@@ -34,7 +35,7 @@ export class AddMemberComponent implements OnInit {
     let pseudo = nom + prenom;
     let password = this.generatePassword();
     let newProfil = new ProfilModel(pseudo, '', prenom, nom, '', this.sexe);
-    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, false, this.addMemberForm.value.admin);
+    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, this.admin);
 
 
 
