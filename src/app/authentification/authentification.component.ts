@@ -9,7 +9,7 @@ import {MemberModel} from "../../shared/model/MemberModel";
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.css']
 })
-export class AuthentificationComponent {
+export class AuthentificationComponent implements OnInit{
   public authentificationForm = this.fb.group({
     pseudo: [""],
     password: [""]
@@ -20,6 +20,11 @@ export class AuthentificationComponent {
   error: string = '';
 
   constructor(public fb: FormBuilder, private loginService: AuthentificationService, private router: Router) { }
+
+  ngOnInit() {
+    if(localStorage.getItem('currentUser'))
+      this.router.navigate(['/accueil']);
+  }
 
   login() {
     let user = new MemberModel(this.authentificationForm.value.pseudo, this.authentificationForm.value.password, '', false);

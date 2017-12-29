@@ -38,6 +38,7 @@ import { AddDefiComponent } from './admin/add-defi/add-defi.component';
 import {AuthGuard} from "./authentification/AuthGard";
 import { ProfilComponent } from './user/profil/profil.component';
 import { AddMemberComponent } from './admin/add-member/add-member.component';
+import {AdminGuard} from "./admin/AdminGuard";
 
 
 @NgModule({
@@ -78,7 +79,7 @@ import { AddMemberComponent } from './admin/add-member/add-member.component';
     BsDatepickerModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, AuthGuard,{provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
