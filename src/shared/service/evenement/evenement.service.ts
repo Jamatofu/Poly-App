@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Http} from "@angular/http";
 import {EvenementModel} from "shared/model/EvenementModel";
+import {Observable} from "rxjs/Observable";
+import {CalendarEvent} from "angular-calendar";
 
 @Injectable()
 export class EvenementService {
@@ -15,7 +17,6 @@ export class EvenementService {
   }
 
   public getEvenement() {
-    console.log("Récupération des évènements");
     return this.http.get(this.url).map(res => res.json());
   }
 }

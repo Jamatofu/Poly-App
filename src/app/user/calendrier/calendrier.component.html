@@ -25,25 +25,25 @@
         mwlCalendarPreviousView
         [view]="view"
         [(viewDate)]="viewDate">
-        Previous
+        Précédent
       </div>
       <div
         class="btn btn-outline-secondary"
         mwlCalendarToday
         [(viewDate)]="viewDate">
-        Today
+        Aujourd'hui
       </div>
       <div
         class="btn btn-primary"
         mwlCalendarNextView
         [view]="view"
         [(viewDate)]="viewDate">
-        Next
+        Suivant
       </div>
     </div>
   </div>
   <div class="col-md-4">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'fr' | ucfirst }}</h3>
   </div>
   <div class="col-md-4">
     <div class="btn-group">

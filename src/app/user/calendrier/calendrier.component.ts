@@ -7,7 +7,8 @@ import {
   endOfMonth,
   isSameDay,
   isSameMonth,
-  addHours
+  addHours,
+  setHours, setMinutes
 } from 'date-fns';
 import { Subject } from 'rxjs/Subject';
 import {
@@ -61,7 +62,7 @@ export class CalendrierComponent implements OnInit{
 
   ngOnInit() {
     this.evenementService.getEvenement()
-      .subscribe(res => res.json() as EvenementModel[]);
+      .subscribe(res => this.events = res);
     // this.evenementService.getEvenement().subscribe(res =>
     //   this.events.push({
     //     start: subDays(startOfDay(new Date()), 1),
@@ -69,11 +70,11 @@ export class CalendrierComponent implements OnInit{
     //     color: colors.blue
     //   }));
 
-    // this.events.push({
-    //   start: subDays(startOfDay(new Date()), 1),
-    //   title: "cool",
-    //   color: colors.blue
-    // });
+    this.events.push({
+      start: subDays(startOfDay(new Date()), 1),
+      title: "cool",
+      color: colors.blue
+    });
   }
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {
