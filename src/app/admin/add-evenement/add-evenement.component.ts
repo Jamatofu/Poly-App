@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {EvenementService} from "../../../shared/service/evenement/evenement.service";
 import {EvenementModel} from "../../../shared/model/EvenementModel";
+import {NotificationsService} from "angular2-notifications";
 
 @Component({
   selector: 'app-add-evenement',
@@ -15,12 +16,18 @@ export class AddEvenementComponent implements OnInit {
     dateDebut: [""]
   });
 
+  public options = {
+    position: ["left", "bottom"],
+    timeOut: 4000,
+    lastOnBottom: true
+  };
+
   public minDate = new Date(2017, 0, 10);
   public _bsValue: Date;
   public hours: number[] = Array(24).fill(0).map((x,i)=>i);
   public minutes: number[] = Array(60).fill(0).map((x,i)=>i);
 
-  constructor(private fb: FormBuilder, private evenementService: EvenementService) { }
+  constructor(private fb: FormBuilder, private evenementService: EvenementService, private notificationService: NotificationsService ) { }
 
   ngOnInit() {
   }
@@ -31,6 +38,8 @@ export class AddEvenementComponent implements OnInit {
                                        this.addEventForm.value.dateDebut);
 
     this.evenementService.addEvenement(evenement);
+
+    this.notificationService.success('L\'évènement a bien été ajouté');
 
   }
 

@@ -3,13 +3,14 @@ import {FormBuilder} from "@angular/forms";
 import {MemberModel} from "../../../shared/model/MemberModel";
 import {ProfilModel} from "../../../shared/model/ProfilModel";
 import {AuthentificationService} from "../../../shared/service/authentification/authentification.service";
+import {NotificationsService} from "angular2-notifications";
 
 @Component({
   selector: 'app-add-member',
   templateUrl: './add-member.component.html',
   styleUrls: ['./add-member.component.css']
 })
-export class AddMemberComponent implements OnInit {
+export class AddMemberComponent {
   public sexe: boolean;
   public admin: boolean;
   public addMemberForm = this.fb.group({
@@ -22,11 +23,15 @@ export class AddMemberComponent implements OnInit {
     // password: ["", Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private inscriptionService: AuthentificationService) { }
+  public options = {
+    position: ["left", "bottom"],
+    timeOut: 4000,
+    lastOnBottom: true
+  };
 
-  ngOnInit() {}
+  constructor(private fb: FormBuilder, private inscriptionService: AuthentificationService, private notificationService: NotificationsService ) { }
 
-  addMember() {
+  public addMember() {
     let nom = this.addMemberForm.value.nom;
     let prenom = this.addMemberForm.value.prenom;
 
@@ -41,6 +46,9 @@ export class AddMemberComponent implements OnInit {
 
     this.inscriptionService.addMember(newMember);
     this.inscriptionService.addProfil(newProfil);
+
+    this.notificationService.success('L\'ajout du membre a bien été ajouté',
+    'Pseudo : ' + pseudo);
   }
 
   private generatePassword(): string {

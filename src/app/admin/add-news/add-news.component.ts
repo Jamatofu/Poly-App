@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {NewsService} from "../../../shared/service/news/news.service";
 import {NewsModel} from "../../user/news/NewsModel";
+import {NotificationsService} from "angular2-notifications";
 // import {ImageResult, Options} from "ngx-image2dataurl";
 
 @Component({
@@ -37,7 +38,13 @@ export class AddNewsComponent implements OnInit {
   //     || imageResult.dataURL;
   // }
 
-  constructor(private fb: FormBuilder, private newsService: NewsService) { }
+  public options = {
+    position: ["left", "bottom"],
+    timeOut: 4000,
+    lastOnBottom: true
+  };
+
+  constructor(private fb: FormBuilder, private newsService: NewsService, private notificationService: NotificationsService) { }
 
   ngOnInit() {
   }
@@ -45,6 +52,8 @@ export class AddNewsComponent implements OnInit {
   public addNews() {
     let news = new NewsModel(this.addNewsForm.value.title, this.addNewsForm.value.urlImage, this.addNewsForm.value.contenu);
     //this.newsService.addNews(news);
+
+    this.notificationService.success('La news a bien été ajoutée');
   }
 
 }

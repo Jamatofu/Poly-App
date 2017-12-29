@@ -39,6 +39,7 @@ import {AuthGuard} from "./authentification/AuthGard";
 import { ProfilComponent } from './user/profil/profil.component';
 import { AddMemberComponent } from './admin/add-member/add-member.component';
 import {AdminGuard} from "./admin/AdminGuard";
+import {SimpleNotificationsModule} from "angular2-notifications";
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import {AdminGuard} from "./admin/AdminGuard";
     Ng2CompleterModule,
     [MatSidenavModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule],
     BsDatepickerModule.forRoot(),
+    SimpleNotificationsModule.forRoot(),
     CalendarModule.forRoot()
   ],
   providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],

@@ -5,5 +5,5 @@
     <option *ngFor="let cat of categorie" [value]="cat" >{{ cat }}</option>
   </select>
 
-  <app-defi-block *ngFor="let defi of listDefi" [defiModel]="defi"></app-defi-block>
+  <app-defi-block *ngFor="let defi of listDefi | reverse" [defiModel]="defi"></app-defi-block>
 </div>
