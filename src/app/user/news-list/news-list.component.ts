@@ -9,6 +9,7 @@ import {Observable} from "rxjs/Observable";
   templateUrl: './news-list.component.html',
   styleUrls: ['./news-list.component.css']
 })
+
 export class NewsListComponent implements OnInit {
   public newsList: NewsModel[] = [];
   public $newsList: Observable<NewsModel[]>;

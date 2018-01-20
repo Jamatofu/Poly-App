@@ -42,6 +42,7 @@ import {AdminGuard} from "./admin/AdminGuard";
 import {SimpleNotificationsModule} from "angular2-notifications";
 import { PolypotinListComponent } from './user/polypotin/polypotin-list/polypotin-list.component';
 import { PolypotinComponent } from './user/polypotin/polypotin/polypotin.component';
+import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
 
 
 @NgModule({
@@ -85,7 +86,7 @@ import { PolypotinComponent } from './user/polypotin/polypotin/polypotin.compone
     SimpleNotificationsModule.forRoot(),
     CalendarModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

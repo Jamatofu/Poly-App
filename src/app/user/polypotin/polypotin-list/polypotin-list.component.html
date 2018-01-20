@@ -1,3 +1,6 @@
-<p>
-  polypotin-list works!
-</p>
+<div class="card-deck">
+  <app-polypotin *ngFor="let polypotin of polypotinList | reverse"
+            [polypotinModel]="polypotin">
+
+  </app-polypotin>
+</div>
