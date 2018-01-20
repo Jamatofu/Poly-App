@@ -5,8 +5,12 @@
     <ul class="list-group">
       <!-- USER PART -->
       <li class="list-group-item list-group-item-action active">Étudiants</li>
+
       <a routerLink="/defi" routerLinkActive="active" (click)="sidenav.close()">
         <li class="list-group-item list-group-item-action">Liste des défis</li>
+      </a>
+      <a routerLink="/polypotin" routerLinkActive="active" (click)="sidenav.close()">
+        <li class="list-group-item list-group-item-action">Liste des polypotins</li>
       </a>
 
       <div *ngIf="isAdmin()">
