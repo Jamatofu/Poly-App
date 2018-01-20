@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {NewsModel} from "./NewsModel";
+import {NewsModel} from "../../../shared/model/NewsModel";
 import {ActivatedRoute, Params} from "@angular/router";
 import {NewsService} from "../../../shared/service/news/news.service";
 import {isUndefined} from "util";

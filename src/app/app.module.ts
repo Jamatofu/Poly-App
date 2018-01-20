@@ -40,6 +40,8 @@ import { ProfilComponent } from './user/profil/profil.component';
 import { AddMemberComponent } from './admin/add-member/add-member.component';
 import {AdminGuard} from "./admin/AdminGuard";
 import {SimpleNotificationsModule} from "angular2-notifications";
+import { PolypotinListComponent } from './user/polypotin/polypotin-list/polypotin-list.component';
+import { PolypotinComponent } from './user/polypotin/polypotin/polypotin.component';
 
 
 @NgModule({
@@ -62,6 +64,8 @@ import {SimpleNotificationsModule} from "angular2-notifications";
     AddDefiComponent,
     ProfilComponent,
     AddMemberComponent,
+    PolypotinListComponent,
+    PolypotinComponent,
   ],
   imports: [
     BrowserModule,

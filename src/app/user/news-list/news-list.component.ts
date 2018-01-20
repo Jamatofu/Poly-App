@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NewsModel} from "../news/NewsModel";
+import {NewsModel} from "../../../shared/model/NewsModel";
 import {NewsService} from "../../../shared/service/news/news.service";
 import {ReplaySubject} from "rxjs/ReplaySubject";
 import {Observable} from "rxjs/Observable";

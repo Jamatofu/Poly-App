@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {NewsService} from "../../../shared/service/news/news.service";
-import {NewsModel} from "../../user/news/NewsModel";
+import {NewsModel} from "../../../shared/model/NewsModel";
 import {NotificationsService} from "angular2-notifications";
 // import {ImageResult, Options} from "ngx-image2dataurl";
 

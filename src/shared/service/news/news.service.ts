@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ReplaySubject} from "rxjs/ReplaySubject";
-import {NewsModel} from "../../../app/user/news/NewsModel";
+import {NewsModel} from "../../model/NewsModel";
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
