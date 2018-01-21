@@ -25,7 +25,7 @@ export class NewsComponent implements OnInit {
         let newsId = params['id'];
         console.log("id : " + newsId);
         this.newsService.getOneNews(newsId).subscribe(
-          // news => this.news = news
+          news => this.news = news
         );
 
       });

@@ -23,7 +23,7 @@ export class NewsService {
 
   public getOneNews(idNews: string) {
     let url = this.url + "/" + idNews;
-    return this.http.get(url);
+    return this.http.get<NewsModel>(url);
   }
 
   public getNbNews() {
