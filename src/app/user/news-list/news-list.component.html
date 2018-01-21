@@ -1,6 +1,16 @@
 <div class="card-deck">
-  <app-news *ngFor="let news of newsList | reverse"
+  <app-news *ngFor="let news of newsList"
             [news]="news">
 
   </app-news>
+
+  <div class="col-xs-12 col-12">
+    <pagination [directionLinks]="false"
+                [boundaryLinks]="true"
+                [totalItems]="totalItems"
+                (pageChanged)="pageChanged($event)"
+                [(ngModel)]="currentPage"
+                [itemsPerPage]="itemPerPage"
+                [maxSize]="maxSize"></pagination>
+  </div>
 </div>

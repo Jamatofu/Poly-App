@@ -25,7 +25,7 @@ import { MessagerieComponent } from './user/messagerie/messagerie-global/message
 import { LireMessageComponent } from './user/messagerie/lire-message/lire-message.component';
 import { EcrireMessageComponent } from './user/messagerie/ecrire-message/ecrire-message.component';
 import { AddEvenementComponent } from './admin/add-evenement/add-evenement.component';
-import {BsDatepickerModule} from "ngx-bootstrap";
+import {BsDatepickerModule, PaginationModule} from "ngx-bootstrap";
 import {EvenementService} from "../shared/service/evenement/evenement.service";
 import { ListMessagePriveComponent } from './user/messagerie/list-message-prive/list-message-prive.component';
 import {MessagerieService} from "../shared/service/messagerie/messagerie.service";
@@ -90,7 +90,8 @@ import { AcceptPolypotinComponent } from './admin/accept-polypotin/accept-polypo
     [MatSidenavModule, MatMenuModule, MatTabsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule],
     BsDatepickerModule.forRoot(),
     SimpleNotificationsModule.forRoot(),
-    CalendarModule.forRoot()
+    CalendarModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]

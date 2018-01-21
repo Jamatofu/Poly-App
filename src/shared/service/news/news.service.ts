@@ -5,6 +5,7 @@ import {Http} from "@angular/http";
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs/Observable";
 import {AuthentificationService} from "../authentification/authentification.service";
+import {HttpClient, HttpParams} from "@angular/common/http";
 
 @Injectable()
 export class NewsService {
@@ -13,17 +14,21 @@ export class NewsService {
   private url = "http://localhost:3000/news";
 
 
-  constructor(private http: Http, private authentificationService: AuthentificationService) {
+  constructor(private http: HttpClient) {
   }
 
-  public getNews(){
-    console.log("No");
-    return this.http.get(this.url).map(res => res.json());
+  public getNews(idPage: number){
+    return this.http.get<NewsModel[]>(this.url, {params: new HttpParams().set('page', String(idPage))});
   }
 
   public getOneNews(idNews: string) {
     let url = this.url + "/" + idNews;
-    return this.http.get(url).map(res => res.json());
+    return this.http.get(url);
+  }
+
+  public getNbNews() {
+    let url = "http://localhost:3000/numberNews";
+    return this.http.get<number>(url);
   }
 
   private handleErrorObservable (error: Response | any) {
@@ -33,6 +38,6 @@ export class NewsService {
 
   public addNews(news: NewsModel) {
     console.log('Ajout d\'une news');
-    //this.http.post(this.url, news).subscribe();
+    this.http.post(this.url, news).subscribe();
   }
 }

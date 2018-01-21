@@ -12,19 +12,22 @@ import {Observable} from "rxjs/Observable";
 
 export class NewsListComponent implements OnInit {
   public newsList: NewsModel[] = [];
-  public $newsList: Observable<NewsModel[]>;
-  private errorMessage: string;
+
+  totalItems: number = 60;
+  currentPage = 1;
+  itemPerPage: number = 5;
+  maxSize: number = 5;
 
   constructor(private newsService: NewsService) {
-    this.$newsList = new ReplaySubject(1);
+    this.newsService.getNbNews().subscribe(nb => {console.log(nb); this.totalItems = nb});
+    this.newsService.getNews(0).subscribe(newList => this.newsList = newList);
   }
 
   ngOnInit() {
-    this.$newsList = this.newsService.getNews();
-    this.$newsList.subscribe(
-      newsList => this.newsList = newsList,
-      error => this.errorMessage = <any>error
-    );
   }
 
+  pageChanged(event: any): void {
+    console.log(event.page);
+    this.newsService.getNews(event.page - 1).subscribe(newList => this.newsList = newList);
+  }
 }

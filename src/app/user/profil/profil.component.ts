@@ -17,10 +17,6 @@ export class ProfilComponent implements OnInit {
   public isDataLoaded: boolean = false;
 
   constructor(private profilService: AuthentificationService, private activatedRoute: ActivatedRoute) {
-    this.$profil = new ReplaySubject(1);
-  }
-
-  ngOnInit() {
     let pseudo = JSON.parse(localStorage.getItem('currentUser')).pseudo;
     this.activatedRoute.params.subscribe((params: Params) => {
       if(params['pseudo'] != null) {
@@ -30,7 +26,10 @@ export class ProfilComponent implements OnInit {
     });
     this.$profil = this.profilService.getProfil(pseudo);
     this.$profil.subscribe(res => this.profil = res,
-                          error => console.log("Erreur : " + error),
-                          () => { console.log("Chargement profil fini"); this.isDataLoaded = true; });
+      error => console.log("Erreur : " + error),
+      () => { console.log("Chargement profil fini"); this.isDataLoaded = true; });
+  }
+
+  ngOnInit() {
   }
 }
