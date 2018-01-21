@@ -29,7 +29,7 @@ export class AddPolypotinComponent implements OnInit {
     console.log("Ajouter polypotin");
     let polypotin = new PolypotinModel(this.addDefiForm.value.content);
     this.defiService.addPolypotin(polypotin);
-
+    this.addDefiForm.reset();
     this.notificationService.success('Polypotin proposé!', 'Attends la validation du staff');
   }
 }

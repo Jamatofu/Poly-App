@@ -38,7 +38,7 @@ export class AddEvenementComponent implements OnInit {
                                        this.addEventForm.value.dateDebut);
 
     this.evenementService.addEvenement(evenement);
-
+    this.addEventForm.reset();
     this.notificationService.success('L\'évènement a bien été ajouté');
 
   }

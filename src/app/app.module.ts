@@ -45,7 +45,7 @@ import { PolypotinComponent } from './polypotin/polypotin/polypotin/polypotin.co
 import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
 import { AddPolypotinComponent } from './polypotin/add-polypotin/add-polypotin.component';
 import { PolypotinGlobalComponent } from './polypotin/polypotin-global/polypotin-global.component';
-import { AcceptPolypotinComponent } from './accept-polypotin/accept-polypotin.component';
+import { AcceptPolypotinComponent } from './admin/accept-polypotin/accept-polypotin.component';
 
 
 @NgModule({

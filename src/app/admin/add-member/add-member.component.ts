@@ -46,7 +46,7 @@ export class AddMemberComponent {
 
     this.inscriptionService.addMember(newMember);
     this.inscriptionService.addProfil(newProfil);
-
+    this.addMemberForm.reset();
     this.notificationService.success('L\'ajout du membre a bien été ajouté',
     'Pseudo : ' + pseudo);
   }

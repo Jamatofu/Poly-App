@@ -32,7 +32,7 @@ export class AddDefiComponent implements OnInit {
     console.log("Ajouter un défi");
     let defi = new DefiModel(this.addDefiForm.value.name, this.addDefiForm.value.description, this.addDefiForm.value.nbPoint, categorie);
     this.defiService.addDefi(defi);
-
+    this.addDefiForm.reset();
     this.notificationService.success('Le défi a bien été ajouté',
       '');
   }

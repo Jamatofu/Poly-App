@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PolypotinService} from "../../shared/service/polypotin/polypotin.service";
-import {PolypotinModel} from "../../shared/model/PolypotinModel";
+import {PolypotinService} from "../../../shared/service/polypotin/polypotin.service";
+import {PolypotinModel} from "../../../shared/model/PolypotinModel";
 import {Observable} from "rxjs/Observable";
 import {ReplaySubject} from "rxjs/ReplaySubject";
 

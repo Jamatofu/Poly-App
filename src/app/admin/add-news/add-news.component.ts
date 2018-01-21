@@ -51,8 +51,8 @@ export class AddNewsComponent implements OnInit {
 
   public addNews() {
     let news = new NewsModel(this.addNewsForm.value.title, this.addNewsForm.value.urlImage, this.addNewsForm.value.contenu);
-    //this.newsService.addNews(news);
-
+    this.newsService.addNews(news);
+    this.addNewsForm.reset();
     this.notificationService.success('La news a bien été ajoutée');
   }
 

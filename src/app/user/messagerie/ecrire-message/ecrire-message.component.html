@@ -18,6 +18,7 @@
     <div class="form-group">
       <select class="custom-select" formControlName="receiver">
         <option *ngIf="receiverIsNull()" value="{{futurReceiver}}" selected> {{ futurReceiver }}</option>
+        <option value="team" class="text-danger">Respos ski</option>
         <option *ngFor="let member of possibleReceicer" [value]="member._id">{{ member.pseudo }}</option>
       </select>
 

@@ -18,7 +18,7 @@ import {AddMemberComponent} from "../admin/add-member/add-member.component";
 import {AdminGuard} from "../admin/AdminGuard";
 import {PolypotinListComponent} from "../polypotin/polypotin/polypotin-list/polypotin-list.component";
 import {PolypotinGlobalComponent} from "../polypotin/polypotin-global/polypotin-global.component";
-import {AcceptPolypotinComponent} from "../accept-polypotin/accept-polypotin.component";
+import {AcceptPolypotinComponent} from "../admin/accept-polypotin/accept-polypotin.component";
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent, canActivate: [AuthGuard] },

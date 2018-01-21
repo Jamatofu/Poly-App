@@ -36,11 +36,14 @@ export class EcrireMessageComponent implements OnInit {
   sendMessage() {
     let id: string = JSON.parse(localStorage.getItem('currentUser')).id;
     let pseudo: string = JSON.parse(localStorage.getItem('currentUser')).pseudo;
+
     this.messagerieService.sendMessage(new MessageModel(this.addMpForm.value.title,
       this.addMpForm.value.content,
       id,
       this.addMpForm.value.receiver,
       pseudo));
+
+    this.addMpForm.reset();
   }
 
   receiverIsNull() {
