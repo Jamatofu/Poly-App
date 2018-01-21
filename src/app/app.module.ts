@@ -40,9 +40,12 @@ import { ProfilComponent } from './user/profil/profil.component';
 import { AddMemberComponent } from './admin/add-member/add-member.component';
 import {AdminGuard} from "./admin/AdminGuard";
 import {SimpleNotificationsModule} from "angular2-notifications";
-import { PolypotinListComponent } from './user/polypotin/polypotin-list/polypotin-list.component';
-import { PolypotinComponent } from './user/polypotin/polypotin/polypotin.component';
+import { PolypotinListComponent } from './polypotin/polypotin/polypotin-list/polypotin-list.component';
+import { PolypotinComponent } from './polypotin/polypotin/polypotin/polypotin.component';
 import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
+import { AddPolypotinComponent } from './polypotin/add-polypotin/add-polypotin.component';
+import { PolypotinGlobalComponent } from './polypotin/polypotin-global/polypotin-global.component';
+import { AcceptPolypotinComponent } from './accept-polypotin/accept-polypotin.component';
 
 
 @NgModule({
@@ -67,6 +70,9 @@ import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
     AddMemberComponent,
     PolypotinListComponent,
     PolypotinComponent,
+    AddPolypotinComponent,
+    PolypotinGlobalComponent,
+    AcceptPolypotinComponent,
   ],
   imports: [
     BrowserModule,

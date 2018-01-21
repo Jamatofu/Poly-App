@@ -1,0 +1,8 @@
+<div *ngFor="let polypotin of polypotinList | reverse">
+  <app-polypotin class="w-100"
+                 [polypotinModel]="polypotin">
+  </app-polypotin>
+
+  <button type="button" class="btn-success w-50" (click)="updatePolypotin(polypotin._id, true)">Accepter</button>
+  <button type="button" class="btn-danger w-50" (click)="updatePolypotin(polypotin._id, false)">Refuser</button>
+</div>

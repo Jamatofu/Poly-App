@@ -16,7 +16,9 @@ import {AuthGuard} from "../authentification/AuthGard";
 import {ProfilComponent} from "../user/profil/profil.component";
 import {AddMemberComponent} from "../admin/add-member/add-member.component";
 import {AdminGuard} from "../admin/AdminGuard";
-import {PolypotinListComponent} from "../user/polypotin/polypotin-list/polypotin-list.component";
+import {PolypotinListComponent} from "../polypotin/polypotin/polypotin-list/polypotin-list.component";
+import {PolypotinGlobalComponent} from "../polypotin/polypotin-global/polypotin-global.component";
+import {AcceptPolypotinComponent} from "../accept-polypotin/accept-polypotin.component";
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent, canActivate: [AuthGuard] },
@@ -25,7 +27,7 @@ const appRoutes: Routes = [
   { path: 'news/:id', component: NewsComponent, canActivate: [AuthGuard] },
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
-  { path: 'polypotin', component: PolypotinListComponent, canActivate: [AuthGuard]},
+  { path: 'polypotin', component: PolypotinGlobalComponent, canActivate: [AuthGuard]},
   { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'profil/:pseudo', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthentificationComponent},
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
         { path: 'ajouter_evenement', component: AddEvenementComponent, canActivate: [AuthGuard]  },
         { path: 'ajouter_membre', component: AddMemberComponent, canActivate: [AuthGuard]  },
         { path: 'ajouter_defi', component: AddDefiComponent, canActivate: [AuthGuard] },
+        { path: 'accept-polypotin', component: AcceptPolypotinComponent, canActivate: [AuthGuard]},
       ]
     }
   ]},

@@ -1,0 +1,15 @@
+<div class="container">
+
+  <form [formGroup]="addDefiForm" (submit)="addPolypotin()">
+
+    <div class="form-group">
+      <textarea formControlName="content" placeholder="Ton polypotin" class="form-control" required ></textarea>
+    </div>
+
+    <button type="submit" class="btn-danger">Proposer le polypotin</button>
+  </form>
+</div>
+
+
+
+<simple-notifications [options]="options"></simple-notifications>

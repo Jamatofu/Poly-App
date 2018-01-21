@@ -18,7 +18,7 @@ export class PolypotinListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.$polypotinList = this.polypotinService.getListPolypotin();
+    this.$polypotinList = this.polypotinService.getListPolypotin(true);
     this.$polypotinList.subscribe(potin => this.polypotinList = potin);
   }
 
