@@ -9,9 +9,10 @@ export class PolypotinService {
 
   constructor(private  http: HttpClient) { }
 
-  getListPolypotin(isAccepted: boolean) {
+  getListPolypotin(isAccepted: boolean, idPage: number) {
 
-    return this.http.get<PolypotinModel[]>(this.url, {params: new HttpParams().set('isAccepted', String(isAccepted))});
+    return this.http.get<PolypotinModel[]>(this.url, {params: new HttpParams().append('isAccepted', String(isAccepted))
+      .append('page', String(idPage))});
   }
 
   public addPolypotin(polypotin: PolypotinModel) {
@@ -26,5 +27,9 @@ export class PolypotinService {
   public refusePolypotin(id: string) {
     console.log(id);
     this.http.delete(this.url, {params: new HttpParams().set('idPolypotin', id)}).subscribe();
+  }
+
+  public getNbPolypotin() {
+    return this.http.get<number>("http://localhost:3000/numberPolypotin")
   }
 }

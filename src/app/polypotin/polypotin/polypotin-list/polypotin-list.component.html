@@ -3,4 +3,14 @@
             [polypotinModel]="polypotin">
 
   </app-polypotin>
+
+  <div class="col-xs-12 col-12">
+    <pagination [directionLinks]="false"
+                [boundaryLinks]="true"
+                [totalItems]="totalItems"
+                (pageChanged)="pageChanged($event)"
+                [(ngModel)]="currentPage"
+                [itemsPerPage]="itemPerPage"
+                [maxSize]="maxSize"></pagination>
+  </div>
 </div>

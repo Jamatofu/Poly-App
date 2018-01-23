@@ -10,3 +10,13 @@
 
   <app-defi-block *ngFor="let defi of listDefi | reverse" [defiModel]="defi"></app-defi-block>
 </div>
+
+<div class="col-xs-12 col-12">
+  <pagination [directionLinks]="false"
+              [boundaryLinks]="true"
+              [totalItems]="totalItems"
+              (pageChanged)="pageChanged($event)"
+              [(ngModel)]="currentPage"
+              [itemsPerPage]="itemPerPage"
+              [maxSize]="maxSize"></pagination>
+</div>
