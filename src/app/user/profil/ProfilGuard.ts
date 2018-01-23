@@ -9,7 +9,7 @@ export class ProfilGuard implements Resolve<ProfilModel> {
 
   constructor(private service: AuthentificationService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): ProfilModel | Observable<ProfilModel> | Promise<ProfilModel> {
+  resolve(route: ActivatedRouteSnapshot){
     return this.service.getProfil('test');
   }
 }

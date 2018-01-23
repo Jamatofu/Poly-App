@@ -1,7 +1,4 @@
 <div class="card m-2" *ngIf="isDataLoaded()">
-  <!--<div class="image">-->
-    <img class="card-img-top img-thumbnail full-width" [src]="news.urlImage" alt="Card image cap">
-  <!--</div>-->
   <div class="card-block">
     <h4 class="card-title text-center text-capitalize p-2">
       <a [routerLink]="this.urlToGo" routerLinkActive="active">{{ news.title }}</a></h4>

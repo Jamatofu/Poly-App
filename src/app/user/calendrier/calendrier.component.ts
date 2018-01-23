@@ -45,6 +45,7 @@ export class CalendrierComponent implements OnInit{
   @ViewChild('modalContent') modalContent: TemplateRef<any>;
 
   view: string = 'month';
+  IsLoaded: boolean = false;
 
   viewDate: Date = new Date();
   events: CalendarEvent[] = [];
@@ -58,23 +59,20 @@ export class CalendrierComponent implements OnInit{
   activeDayIsOpen: boolean = true;
 
   constructor(private evenementService: EvenementService) {
+    this.evenementService.getEvenement().subscribe(res => {
+      for(var i = 0; i < res.length; i++) {
+        console.log(res[i].start);
+        this.events.push({
+          start: subDays(startOfDay(res[i].start), 0),
+          title: res[i].content,
+          color: colors.blue
+        });
+      }
+      this.IsLoaded = true;
+    });
   }
 
   ngOnInit() {
-    // this.evenementService.getEvenement()
-      // .subscribe(res => this.events = res);
-    // this.evenementService.getEvenement().subscribe(res =>
-    //   this.events.push({
-    //     start: subDays(startOfDay(new Date()), 1),
-    //     title: "cool",
-    //     color: colors.blue
-    //   }));
-
-    this.events.push({
-      start: subDays(startOfDay(new Date()), 1),
-      title: "cool",
-      color: colors.blue
-    });
   }
 
   dayClicked({date, events}: { date: Date; events: CalendarEvent[] }): void {
