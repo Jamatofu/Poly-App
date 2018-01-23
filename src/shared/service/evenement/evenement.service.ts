@@ -3,12 +3,13 @@ import {Http} from "@angular/http";
 import {EvenementModel} from "shared/model/EvenementModel";
 import {Observable} from "rxjs/Observable";
 import {CalendarEvent} from "angular-calendar";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class EvenementService {
   private url = "http://localhost:3000/evenement";
 
-  constructor(private http: Http) { }
+  constructor(private http: HttpClient) { }
 
 
   public addEvenement(evenement: EvenementModel) {
@@ -17,6 +18,6 @@ export class EvenementService {
   }
 
   public getEvenement() {
-    return this.http.get(this.url).map(res => res.json());
+    return this.http.get<EvenementModel[]>(this.url);
   }
 }

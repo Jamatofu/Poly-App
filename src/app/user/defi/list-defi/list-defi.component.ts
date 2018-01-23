@@ -21,10 +21,10 @@ export class ListDefiComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.sortDefiList(Categorie.VIDE);
+    this.sortDefiList('');
   }
 
-  sortDefiList(categorie : Categorie) {
+  sortDefiList(categorie : string) {
     this.$defiList = this.defiService.getListDefi(categorie);
     this.$defiList.subscribe(listDefi => {this.listDefi = listDefi});
   }

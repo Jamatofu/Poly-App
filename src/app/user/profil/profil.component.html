@@ -1,4 +1,4 @@
-<div *ngIf="this.$profil | async">
+<div *ngIf="$profil">
   <!--<img [src]="profil.urlProfil" class="img-thumbnail">-->
-  <p>{{ profil.prenom }} {{ profil?.nom}} aka {{ profil?.surnom}}</p>
+  <p>{{ profil?.prenom }} aka</p>
 </div>

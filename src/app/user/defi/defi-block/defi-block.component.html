@@ -1,18 +1,18 @@
-<div class="card" >
+<div class="card">
 
   <div class="class-block">
-    <div  class="p-3">
+    <div  class="p-3 w-75 d-inline">
       <h3 class="card-title"> {{ defiModel.name }}</h3>
       <p class="card-text">{{ defiModel.description }}</p>
 
-      <div flFlex="100" fxLayout="row" class="card-subtitle text-muted">
-          <p><span class="font-weight-bold">Catégorie : </span>{{ defiModel.categorie | ucfirst }}</p>
-          <p fxFlexAlign="end">{{ defiModel.nbPoint }} points</p>
+      <div class="card-subtitle text-muted">
+        <p><span class="font-weight-bold">Catégorie : </span>{{ defiModel.categorie | ucfirst }}</p>
+        <p fxFlexAlign="end">{{ defiModel.nbPoint }} points</p>
       </div>
     </div>
-
-    <div fxFlex="20" >
-      <button type="button" class="btn btn-info w-100 h-100" (click)="acceptDefi()">Accepter!</button>
-    </div>
   </div>
+  <div class="w-100 d-inline">
+    <button type="button" class="btn btn-info w-100" (click)="acceptDefi()">Accepter!</button>
+  </div>
+
 </div>

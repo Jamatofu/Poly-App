@@ -3,19 +3,23 @@ import {MemberModel} from "../../model/MemberModel";
 import {Http, RequestOptions, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {ProfilModel} from "../../model/ProfilModel";
+import {HttpClient} from "@angular/common/http";
+import {HttpHeaders} from "@angular/common/http";
 
 @Injectable()
 export class AuthentificationService {
   private url = "http://localhost:3000/authentification";
   public token: String;
 
-  constructor(private http: Http) {
+  public profil: ProfilModel;
+
+  constructor(private http: HttpClient) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
 
   login(user: MemberModel): Observable<boolean> {
-    var headers = new Headers();
+    var headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
 
     console.log(JSON.stringify({pseudo: user.pseudo, password: user.password}));
@@ -47,8 +51,7 @@ export class AuthentificationService {
   }
 
   getProfil(pseudo: string) {
-    return this.http.get("http://localhost:3000/profil/" + pseudo)
-      .map((res : Response) => res.json());
+    return this.http.get<ProfilModel>("http://localhost:3000/profil/" + pseudo);
   }
 
 

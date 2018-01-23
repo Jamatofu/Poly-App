@@ -46,6 +46,7 @@ import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
 import { AddPolypotinComponent } from './polypotin/add-polypotin/add-polypotin.component';
 import { PolypotinGlobalComponent } from './polypotin/polypotin-global/polypotin-global.component';
 import { AcceptPolypotinComponent } from './admin/accept-polypotin/accept-polypotin.component';
+import {ProfilGuard} from "./user/profil/ProfilGuard";
 
 
 @NgModule({
@@ -93,7 +94,7 @@ import { AcceptPolypotinComponent } from './admin/accept-polypotin/accept-polypo
     CalendarModule.forRoot(),
     PaginationModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, ProfilGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

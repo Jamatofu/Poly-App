@@ -10,8 +10,8 @@ export class DefiService {
 
   constructor(private http: Http) { }
 
-  getListDefi(categorie: Categorie) {
-    if(categorie == Categorie.VIDE) {
+  getListDefi(categorie: string) {
+    if(categorie == '') {
       return this.http.get(this.url).map(res => res.json());
     } else {
       return this.http.get(this.url + "/" + categorie).map(res => res.json());

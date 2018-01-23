@@ -2,7 +2,10 @@
   <p>Trier par catégorie : </p>
 
   <select class="custom-select" (ngModelChange)="sortDefiList($event)" [(ngModel)]="categorie">
-    <option *ngFor="let cat of categorie" [value]="cat" >{{ cat }}</option>
+    <option value="" ></option>
+    <option value="alcool" >Alcool</option>
+    <option value="sexe" >Sexe</option>
+    <option value="ski" >Ski</option>
   </select>
 
   <app-defi-block *ngFor="let defi of listDefi | reverse" [defiModel]="defi"></app-defi-block>

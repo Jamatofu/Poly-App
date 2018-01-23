@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProfilModel} from "../../../shared/model/ProfilModel";
 import {AuthentificationService} from "../../../shared/service/authentification/authentification.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, ParamMap, Params} from "@angular/router";
 import {isUndefined} from "util";
 import {Observable} from "rxjs/Observable";
 import {ReplaySubject} from "rxjs/ReplaySubject";
@@ -12,7 +12,7 @@ import {ReplaySubject} from "rxjs/ReplaySubject";
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
-  public profil: ProfilModel;
+  public profil: ProfilModel = null;
   public $profil: Observable<ProfilModel>;
   public isDataLoaded: boolean = false;
 
@@ -24,10 +24,10 @@ export class ProfilComponent implements OnInit {
         pseudo = params['pseudo'];
       }
     });
-    this.$profil = this.profilService.getProfil(pseudo);
-    this.$profil.subscribe(res => this.profil = res,
-      error => console.log("Erreur : " + error),
-      () => { console.log("Chargement profil fini"); this.isDataLoaded = true; });
+
+    // this.activatedRoute.paramMap.subscribe((params : ParamMap) => {
+    //   this.profil = params.get();
+    // });
   }
 
   ngOnInit() {

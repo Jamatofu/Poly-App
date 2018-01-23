@@ -61,8 +61,8 @@ export class CalendrierComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.evenementService.getEvenement()
-      .subscribe(res => this.events = res);
+    // this.evenementService.getEvenement()
+      // .subscribe(res => this.events = res);
     // this.evenementService.getEvenement().subscribe(res =>
     //   this.events.push({
     //     start: subDays(startOfDay(new Date()), 1),

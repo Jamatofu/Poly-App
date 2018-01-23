@@ -19,6 +19,7 @@ import {AdminGuard} from "../admin/AdminGuard";
 import {PolypotinListComponent} from "../polypotin/polypotin/polypotin-list/polypotin-list.component";
 import {PolypotinGlobalComponent} from "../polypotin/polypotin-global/polypotin-global.component";
 import {AcceptPolypotinComponent} from "../admin/accept-polypotin/accept-polypotin.component";
+import {ProfilGuard} from "../user/profil/ProfilGuard";
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent, canActivate: [AuthGuard] },
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
   { path: 'polypotin', component: PolypotinGlobalComponent, canActivate: [AuthGuard]},
-  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
+  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard], resolve: { profil: ProfilGuard} },
   { path: 'profil/:pseudo', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'login', component: AuthentificationComponent},
   { path: 'admin', canActivate: [AdminGuard], children: [
