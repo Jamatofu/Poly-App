@@ -16,9 +16,7 @@ export class AddMemberComponent {
   public addMemberForm = this.fb.group({
     nom: [""],
     prenom: [""],
-    mail: [""],
     sexe: [""],
-    admin: [""]
     // pseudo: ["", Validators.required, Validators.minLength(5)],
     // password: ["", Validators.required]
   });
@@ -40,14 +38,14 @@ export class AddMemberComponent {
     let pseudo = nom + prenom;
     let password = this.generatePassword();
     let newProfil = new ProfilModel(pseudo, '', prenom, nom, '', this.sexe);
-    let newMember = new MemberModel(pseudo, password, this.addMemberForm.value.mail, this.admin);
+    let newMember = new MemberModel(pseudo, password, " ", false);
 
 
 
     this.inscriptionService.addMember(newMember);
     this.inscriptionService.addProfil(newProfil);
     this.addMemberForm.reset();
-    this.notificationService.success('L\'ajout du membre a bien été ajouté',
+    this.notificationService.success('Ton compte a été ajouté!',
     'Pseudo : ' + pseudo);
   }
 

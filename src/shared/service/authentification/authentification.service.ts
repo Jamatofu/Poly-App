@@ -13,7 +13,7 @@ export class AuthentificationService {
 
   public profil: ProfilModel;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: Http) {
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.token = currentUser && currentUser.token;
   }
@@ -23,7 +23,7 @@ export class AuthentificationService {
     headers.append('Content-Type', 'application/json');
 
     console.log(JSON.stringify({pseudo: user.pseudo, password: user.password}));
-    return this.http.post(this.url, JSON.stringify({pseudo: user.pseudo, password: user.password}),  { headers: headers})
+    return this.http.post(this.url, user)
       .map((response: Response) => {
         let token = response.json() && response.json().token;
         if(token) {
@@ -51,7 +51,7 @@ export class AuthentificationService {
   }
 
   getProfil(pseudo: string) {
-    return this.http.get<ProfilModel>("http://localhost:3000/profil/" + pseudo);
+    return this.http.get("http://localhost:3000/profil/" + pseudo);
   }
 
 

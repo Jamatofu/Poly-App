@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
-import {AuthentificationService} from "../../shared/service/authentification/authentification.service";
+import {AuthentificationService} from "../../../shared/service/authentification/authentification.service";
 import {CanActivate, Router} from "@angular/router";
-import {MemberModel} from "../../shared/model/MemberModel";
+import {MemberModel} from "../../../shared/model/MemberModel";
 
 @Component({
   selector: 'app-authentification',
@@ -28,7 +28,6 @@ export class AuthentificationComponent implements OnInit{
 
   login() {
     let user = new MemberModel(this.authentificationForm.value.pseudo, this.authentificationForm.value.password, '', false);
-
     this.loading = true;
     this.loginService.login(user)
       .subscribe(result => {

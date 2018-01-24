@@ -1,14 +1,12 @@
-<div fxLayout="row" id="windows">
-  <form [formGroup]="authentificationForm" id="authentificationForm" class="p-5 text-center" (ngSubmit)="login($event)">
+  <form [formGroup]="authentificationForm" class="p-5 text-center" (ngSubmit)="login($event)">
 
-    <div class="row form-group">
+    <div class="form-group">
         <input formControlName="pseudo" class="form-control" type="text" id="pseudo" placeholder="Pseudo"/>
     </div>
 
-    <div class="row form-group">
+    <div class="form-group">
         <input formControlName="password" class="form-control" type="password" id="password"  placeholder="Mot de passe"/>
     </div>
 
     <button type="submit" class="btn-lg btn-success">S'identifier</button>
   </form>
-</div>

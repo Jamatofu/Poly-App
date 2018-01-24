@@ -1,6 +1,6 @@
 <div class="container" xmlns="http://www.w3.org/1999/html">
 
-  <form [formGroup]="addMemberForm" (submit)="addMember()">
+  <form [formGroup]="addMemberForm" (submit)="addMember()" class="p-5 text-center">
     <div class="form-group">
       <input type="text" formControlName="prenom"  placeholder="Prénom" class="form-control" required maxlength="60" />
     </div>
@@ -10,21 +10,12 @@
     </div>
 
     <div class="form-group">
-      <input type="text" formControlName="mail" placeholder="Mail" class="form-control" required>
-    </div>
-
-    <div class="form-group">
       <input type="radio" [(ngModel)]="sexe" formControlName="sexe" name="sexe" value="false" >Homme
       <input type="radio" [(ngModel)]="sexe" formControlName="sexe" name="sexe" value="true">Femme
 
     </div>
 
-    <div class="form-group">
-      <input type="radio" [(ngModel)]="admin" formControlName="admin" name="admin" value="false" >Non admin
-      <input type="radio" [(ngModel)]="admin" formControlName="admin" name="admin" value="true">Admin
-    </div>
-
-    <button type="submit" class="btn-danger">Ajouter le membre</button>
+    <button type="submit" class="btn-danger">S'inscrire</button>
   </form>
 </div>
 

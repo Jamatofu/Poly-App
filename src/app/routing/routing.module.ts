@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {PageNotFoundComponent} from "../user/page-not-found/page-not-found.component";
 import {CalendrierComponent} from "../user/calendrier/calendrier.component";
-import {AuthentificationComponent} from "../authentification/authentification.component";
+import {AuthentificationComponent} from "../inscription/authentification/authentification.component";
 import {NewsListComponent} from "../user/news-list/news-list.component";
 import {RouterModule, Routes} from "@angular/router";
 import {AddNewsComponent} from "../admin/add-news/add-news.component";
@@ -12,14 +12,14 @@ import {LireMessageComponent} from "../user/messagerie/lire-message/lire-message
 import {EcrireMessageComponent} from "../user/messagerie/ecrire-message/ecrire-message.component";
 import {ListDefiComponent} from "../user/defi/list-defi/list-defi.component";
 import {AddDefiComponent} from "../admin/add-defi/add-defi.component";
-import {AuthGuard} from "../authentification/AuthGard";
+import {AuthGuard} from "../inscription/authentification/AuthGard";
 import {ProfilComponent} from "../user/profil/profil.component";
-import {AddMemberComponent} from "../admin/add-member/add-member.component";
+import {AddMemberComponent} from "../inscription/add-member/add-member.component";
 import {AdminGuard} from "../admin/AdminGuard";
 import {PolypotinListComponent} from "../polypotin/polypotin/polypotin-list/polypotin-list.component";
 import {PolypotinGlobalComponent} from "../polypotin/polypotin-global/polypotin-global.component";
 import {AcceptPolypotinComponent} from "../admin/accept-polypotin/accept-polypotin.component";
-import {ProfilGuard} from "../user/profil/ProfilGuard";
+import {InscriptionComponent} from "../inscription/inscription.component";
 
 const appRoutes: Routes = [
   { path: 'accueil', component: NewsListComponent, canActivate: [AuthGuard] },
@@ -29,9 +29,9 @@ const appRoutes: Routes = [
   { path: 'message/:id', component: LireMessageComponent, canActivate: [AuthGuard] },
   { path: 'defi', component: ListDefiComponent, canActivate: [AuthGuard] },
   { path: 'polypotin', component: PolypotinGlobalComponent, canActivate: [AuthGuard]},
-  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard], resolve: { profil: ProfilGuard} },
+  { path: 'profil', component: ProfilComponent, canActivate: [AuthGuard] },
   { path: 'profil/:pseudo', component: ProfilComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: AuthentificationComponent},
+  { path: 'login', component: InscriptionComponent},
   { path: 'admin', canActivate: [AdminGuard], children: [
     {
       path: '',

@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NewsListComponent } from './user/news-list/news-list.component';
 import {NewsService} from "../shared/service/news/news.service";
 import {HttpModule} from "@angular/http";
-import { AuthentificationComponent } from './authentification/authentification.component';
+import { AuthentificationComponent } from './inscription/authentification/authentification.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {AuthentificationService} from "../shared/service/authentification/authentification.service";
@@ -35,9 +35,9 @@ import { ListDefiComponent } from './user/defi/list-defi/list-defi.component';
 import { DefiBlockComponent } from './user/defi/defi-block/defi-block.component';
 import {DefiService} from "../shared/service/defi/defi.service";
 import { AddDefiComponent } from './admin/add-defi/add-defi.component';
-import {AuthGuard} from "./authentification/AuthGard";
+import {AuthGuard} from "./inscription/authentification/AuthGard";
 import { ProfilComponent } from './user/profil/profil.component';
-import { AddMemberComponent } from './admin/add-member/add-member.component';
+import { AddMemberComponent } from './inscription/add-member/add-member.component';
 import {AdminGuard} from "./admin/AdminGuard";
 import {SimpleNotificationsModule} from "angular2-notifications";
 import { PolypotinListComponent } from './polypotin/polypotin/polypotin-list/polypotin-list.component';
@@ -46,7 +46,7 @@ import {PolypotinService} from "../shared/service/polypotin/polypotin.service";
 import { AddPolypotinComponent } from './polypotin/add-polypotin/add-polypotin.component';
 import { PolypotinGlobalComponent } from './polypotin/polypotin-global/polypotin-global.component';
 import { AcceptPolypotinComponent } from './admin/accept-polypotin/accept-polypotin.component';
-import {ProfilGuard} from "./user/profil/ProfilGuard";
+import {InscriptionComponent} from "./inscription/inscription.component";
 
 
 @NgModule({
@@ -74,6 +74,7 @@ import {ProfilGuard} from "./user/profil/ProfilGuard";
     AddPolypotinComponent,
     PolypotinGlobalComponent,
     AcceptPolypotinComponent,
+    InscriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +95,7 @@ import {ProfilGuard} from "./user/profil/ProfilGuard";
     CalendarModule.forRoot(),
     PaginationModule.forRoot()
   ],
-  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, ProfilGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
+  providers: [NewsService, AuthentificationService, EvenementService, MessagerieService, DefiService, PolypotinService,AuthGuard, AdminGuard, {provide: LOCALE_ID, useValue: "fr-FR"}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
